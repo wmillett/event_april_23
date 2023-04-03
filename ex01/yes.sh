@@ -1,4 +1,4 @@
 while true
 do
-echo "Yes"
+  awk 'BEGIN { print "Yes" }'
 done

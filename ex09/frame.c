@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <ctype.h>
 int findlongest(int argc, char**v)
 {
     int i = 1;
@@ -13,9 +12,9 @@ int findlongest(int argc, char**v)
         while(v[i][j])
         {
             count = 0;
-            while(isalpha(v[i][j]) == 0)
+            while((v[i][j] == ' ' || v[i][j] == '\t') && v[i][j])
                 j++;
-            while(isalpha(v[i][j]))
+            while(v[i][j] != ' ' && v[i][j] != '\t' && v[i][j])
             {
                 count++;
                 j++;
@@ -43,15 +42,15 @@ void eachwordprint(int argc,char**v, int longest)
         {
             count = 0;
             printf("* ");
-            while(isalpha(v[i][j]) == 0 && v[i][j])
+            while((v[i][j] == ' ' || v[i][j] == '\t' )&& v[i][j])
                 j++;
-            while(isalpha(v[i][j]))
+            while(v[i][j] != ' ' && v[i][j] != '\t' && v[i][j])
             {
                 printf("%c", v[i][j]);
                 count++;
                 j++;
             }
-            while(isalpha(v[i][j]) == 0 && v[i][j])
+            while((v[i][j] == ' ' || v[i][j] == '\t' )&& v[i][j])
                 j++;
             tmp = longest;
             if (count < tmp--)
